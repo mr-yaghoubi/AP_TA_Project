@@ -12,7 +12,7 @@ Table::Table(string name_, vector<Column> columns_) : name(name_) {
 }
 
 void Table::insertFields(vector<Field> fields) {
-    checkRequiredFields(fields);  
+    checkRequiredFields(fields);
     Row new_row;
     for (const auto& field : fields) {
         new_row.data[field.name] = field.value;
@@ -62,7 +62,7 @@ void EnhancedTable::checkDuplicateReq(vector<Field> fields) {
 }
 
 void EnhancedTable::insertFields(vector<Field> fields) {
-    Table::checkRequiredFields(fields);  
+    Table::checkRequiredFields(fields);
     checkDuplicateReq(fields);
     Row new_row;
     for (const auto& field : fields) {

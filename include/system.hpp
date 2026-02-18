@@ -1,12 +1,12 @@
 #ifndef SYSTEM_HPP
 #define SYSTEM_HPP
 
-#include <vector>
-#include <memory>
 #include <algorithm>
+#include <memory>
+#include <vector>
 
-#include "table.hpp"
 #include "consts.hpp"
+#include "table.hpp"
 #include "utils.hpp"
 
 using namespace std;

@@ -1,17 +1,17 @@
 #ifndef TABLE_HPP
 #define TABLE_HPP
 
-#include <unordered_map>
-#include <vector>
 #include <set>
 #include <string>
+#include <unordered_map>
+#include <vector>
 
 #include "utils.hpp"
 
 using namespace std;
 
 class Row {
-public: 
+public:
     unordered_map<string, string> data;
 };
 
@@ -33,6 +33,7 @@ public:
     EnhancedTable(string name_, vector<Column> columns_);
     void insertFields(vector<Field> fields) override;
     void checkDuplicateReq(vector<Field> fields);
+
 private:
     string required_column_name;
 };
