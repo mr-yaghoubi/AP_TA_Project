@@ -2,14 +2,13 @@
 
 void System::createTable(string table_name, vector<Column> columns) {
     cout << "Creating table: " << table_name << endl;
-    for (const auto& col : columns) 
-        cout << "Column: " << col.name << ", Type: " << col.type << ", Required: " << (col.required ? "Yes" : "No") << endl;    
-
+    for (const auto& col : columns)
+        cout << "Column: " << col.name << ", Type: " << col.type << ", Required: " << (col.required ? "Yes" : "No") << endl;
 }
 
 void System::createEnhancedTable(string table_name, vector<Column> columns) {
     cout << "Creating enhanced table: " << table_name << endl;
-    for (const auto& col : columns) 
+    for (const auto& col : columns)
         cout << "Column: " << col.name << ", Type: " << col.type << ", Required: " << (col.required ? "Yes" : "No") << endl;
 }
 
@@ -19,7 +18,7 @@ void System::dropTable(string table_name) {
 
 void System::insertIntoTable(string table_name, vector<Field> fields) {
     cout << "Inserting into table: " << table_name << endl;
-    for (const auto& field : fields) 
+    for (const auto& field : fields)
         cout << "Field: " << field.name << ", Value: " << field.value << endl;
 }
 
@@ -32,10 +31,10 @@ void System::updateTable(string table_name, Field op_field, string op, Field upd
 vector<vector<string>> System::selectFromTable(string table_name, vector<string> requested_fields, Field search_field, string op) {
     cout << "Selecting from table: " << table_name << endl;
     cout << "Requested fields: ";
-    for (const auto& field : requested_fields) 
+    for (const auto& field : requested_fields)
         cout << field << " ";
     cout << endl;
     cout << "Where " << search_field.name << " " << op << " " << search_field.value << endl;
 
-    return {{"Sample Data 1", "Sample Data 2"}, {"Sample Data 3", "Sample Data 4"}}; // Sample data for demonstration
+    return {{"Sample Data 1", "Sample Data 2"}, {"Sample Data 3", "Sample Data 4"}};  // Sample data for demonstration
 }

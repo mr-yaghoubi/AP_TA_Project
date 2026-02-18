@@ -1,20 +1,21 @@
 #ifndef CLI_HPP
 #define CLI_HPP
 
-#include <vector>
-#include <memory>
 #include <algorithm>
+#include <memory>
 #include <stdexcept>
+#include <vector>
 
+#include "consts.hpp"
 #include "system.hpp"
 #include "utils.hpp"
-#include "consts.hpp"
 
 using namespace std;
 
 class CliHandler {
 public:
     void run();
+
 private:
     shared_ptr<System> system;
 

@@ -1,14 +1,11 @@
 #ifndef UTILS_HPP
 #define UTILS_HPP
 
-
-
-#include <vector>
-#include <string>
 #include <iostream>
+#include <string>
+#include <vector>
 
 #include "consts.hpp"
-
 
 using namespace std;
 

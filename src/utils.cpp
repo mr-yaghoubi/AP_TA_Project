@@ -36,17 +36,17 @@ vector<Column> inputColumns(const vector<string>& tokens) {
 
 void printSelectResult(const vector<vector<string>>& result) {
     for (size_t i = 0; i < result.size(); i++) {
-    cout << i + 1 << ". "; 
+        cout << i + 1 << ". ";
 
-    const auto& row = result[i];
+        const auto& row = result[i];
 
-    for (size_t j = 0; j < row.size(); j++) {
-        cout << row[j];
-        if (j + 1 < row.size()) {
-            cout << " : "; 
+        for (size_t j = 0; j < row.size(); j++) {
+            cout << row[j];
+            if (j + 1 < row.size()) {
+                cout << " : ";
+            }
         }
-    }
 
-    cout << endl;
-}
+        cout << endl;
+    }
 }

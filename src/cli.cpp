@@ -2,14 +2,14 @@
 
 void CliHandler::run() {
     string line;
-    while(getline(cin, line)) {
+    while (getline(cin, line)) {
         vector<string> tokens = splitString(line);
         if (tokens.empty()) {
             continue;
         }
 
         string command = tokens[0];
-        tokens.erase(tokens.begin()); 
+        tokens.erase(tokens.begin());
         try {
             if (command == commands::CREATE_TABLE) {
                 handleCreateTable(tokens);
@@ -26,18 +26,16 @@ void CliHandler::run() {
             } else {
                 cout << "Unknown command: " << command << endl;
             }
-        }
-        catch(exception& e) {
+        } catch (exception& e) {
             cout << "Error: " << e.what() << endl;
         }
-
     }
 }
 
 void CliHandler::handleCreateTable(vector<string> tokens) {
     string table_name = tokens[0];
-    tokens.erase(tokens.begin()); 
-    
+    tokens.erase(tokens.begin());
+
     vector<Column> columns = inputColumns(tokens);
     system->createTable(table_name, columns);
 
@@ -46,8 +44,8 @@ void CliHandler::handleCreateTable(vector<string> tokens) {
 
 void CliHandler::handleCreateEnhancedTable(vector<string> tokens) {
     string enhanced_table_name = tokens[0];
-    tokens.erase(tokens.begin()); 
-    
+    tokens.erase(tokens.begin());
+
     vector<Column> columns = inputColumns(tokens);
     system->createEnhancedTable(enhanced_table_name, columns);
 
@@ -73,13 +71,13 @@ void CliHandler::handleInsert(vector<string> tokens) {
         fields.push_back({tokens[i], tokens[i + 1]});
     }
     system->insertIntoTable(table_name, fields);
-    
+
     cout << "Success: Record inserted into table successfully" << endl;
 }
 
 void CliHandler::handleUpdate(vector<string> tokens) {
     string table_name = tokens[0];
-    tokens.erase(tokens.begin()); 
+    tokens.erase(tokens.begin());
 
     if (tokens[0] != commands::WHERE || tokens[4] != commands::SET) {
         throw invalid_argument("Unknown command");
@@ -91,7 +89,7 @@ void CliHandler::handleUpdate(vector<string> tokens) {
     update_field = {tokens[5], tokens[6]};
 
     system->updateTable(table_name, op_field, op, update_field);
-    
+
     cout << "Success: Records updated in table" << endl;
 }
 
@@ -102,15 +100,15 @@ void CliHandler::handleSelect(vector<string> tokens) {
     string op;
     while (tokens[i] != commands::FROM) {
         requested_fields.push_back(tokens[i]);
-        i++;    
+        i++;
     }
     i++;
     string table_name = tokens[i++];
     if (tokens[i++] != commands::WHERE) {
         throw invalid_argument("Unknown command");
     }
-    search_field = {tokens[i], tokens[i+2]};
-    op = tokens[i+1];
+    search_field = {tokens[i], tokens[i + 2]};
+    op = tokens[i + 1];
 
     vector<vector<string>> result = system->selectFromTable(table_name, requested_fields, search_field, op);
     printSelectResult(result);
