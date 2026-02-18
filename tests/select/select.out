@@ -18,12 +18,10 @@ Success: Record inserted into table successfully
 1. yahyapour
 1. parisa : yahyapour
 2. kourosh : alinaghi
-3.  : yaghoubi
+3. mohammadreza : yaghoubi
 1. yahyapour : parisa
 2. alinaghi : kourosh
 3. mehrabi : mm
 Error: No matching records found
 Error: No matching records found
-1. 5
 Success: Table students deleted successfully
-Error: Table students does not exist

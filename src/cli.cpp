@@ -111,5 +111,8 @@ void CliHandler::handleSelect(vector<string> tokens) {
     op = tokens[i + 1];
 
     vector<vector<string>> result = system->selectFromTable(table_name, requested_fields, search_field, op);
+    if (result.empty()) {
+        throw runtime_error("No matching records found");
+    }
     printSelectResult(result);
 }

@@ -50,3 +50,19 @@ void printSelectResult(const vector<vector<string>>& result) {
         cout << endl;
     }
 }
+
+bool operationResult(string field_value, string op, string search_value, string field_type) {
+    if (field_type == "int") {
+        int field_int = stoi(field_value);
+        int search_int = stoi(search_value);
+        if (op == "=") return field_int == search_int;
+        if (op == "!=") return field_int != search_int;
+        if (op == "<") return field_int < search_int;
+    } else if (field_type == "string") {
+        if (op == "=") return field_value == search_value;
+        if (op == "!=") return field_value != search_value;
+    }
+    else
+        throw invalid_argument("Unsupported operation or field type");
+}
+

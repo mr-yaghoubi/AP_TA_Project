@@ -35,20 +35,19 @@ void System::insertIntoTable(string table_name, vector<Field> fields) {
 }
 
 void System::updateTable(string table_name, Field op_field, string op, Field update_field) {
-    cout << "Updating table: " << table_name << endl;
-    cout << "Where " << op_field.name << " " << op << " " << op_field.value << endl;
-    cout << "Set " << update_field.name << " = " << update_field.value << endl;
+    shared_ptr<Table> table = findTable(table_name);
+    if (table == nullptr) {
+        throw runtime_error("Table " + table_name + " does not exist");
+    }
+    table->update(op_field, op, update_field);
 }
 
 vector<vector<string>> System::selectFromTable(string table_name, vector<string> requested_fields, Field search_field, string op) {
-    cout << "Selecting from table: " << table_name << endl;
-    cout << "Requested fields: ";
-    for (const auto& field : requested_fields)
-        cout << field << " ";
-    cout << endl;
-    cout << "Where " << search_field.name << " " << op << " " << search_field.value << endl;
-
-    return {{"Sample Data 1", "Sample Data 2"}, {"Sample Data 3", "Sample Data 4"}};  // Sample data for demonstration
+    shared_ptr<Table> table = findTable(table_name);
+    if (table == nullptr) {
+        throw runtime_error("Table " + table_name + " does not exist");
+    }
+    return table->select(requested_fields, search_field, op);
 }
 
 shared_ptr<Table> System::findTable(string table_name) {
