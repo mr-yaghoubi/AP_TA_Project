@@ -22,7 +22,7 @@ public:
 
 private:
     vector<shared_ptr<Table>> tables;
-    bool doesTableExist(string table_name);
+    shared_ptr<Table> findTable(string table_name);
 };
 
 #endif  // SYSTEM_HPP

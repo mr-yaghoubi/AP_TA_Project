@@ -18,9 +18,10 @@ public:
 class Table {
 public:
     Table(string name_, vector<Column> columns_);
-
     string getName() { return name; }
-    
+    virtual void insertFields(vector<Field> fields);
+    void checkRequiredFields(vector<Field> fields);
+
 protected:
     string name;
     vector<Column> columns;
@@ -30,6 +31,8 @@ protected:
 class EnhancedTable : public Table {
 public:
     EnhancedTable(string name_, vector<Column> columns_);
+    void insertFields(vector<Field> fields) override;
+    void checkDuplicateReq(vector<Field> fields);
 private:
     string required_column_name;
 };
