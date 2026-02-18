@@ -1,19 +1,29 @@
 #include "system.hpp"
 
 void System::createTable(string table_name, vector<Column> columns) {
-    cout << "Creating table: " << table_name << endl;
-    for (const auto& col : columns)
-        cout << "Column: " << col.name << ", Type: " << col.type << ", Required: " << (col.required ? "Yes" : "No") << endl;
+    if (doesTableExist(table_name)) {
+        throw runtime_error("A table with this name already exists");
+    }
+    shared_ptr<Table> new_table = make_shared<Table>(table_name, columns);
+    tables.push_back(new_table);
 }
 
 void System::createEnhancedTable(string table_name, vector<Column> columns) {
-    cout << "Creating enhanced table: " << table_name << endl;
-    for (const auto& col : columns)
-        cout << "Column: " << col.name << ", Type: " << col.type << ", Required: " << (col.required ? "Yes" : "No") << endl;
+        if (doesTableExist(table_name)) {
+        throw runtime_error("A table with this name already exists");
+    }
+    shared_ptr<Table> new_table = make_shared<EnhancedTable>(table_name, columns);
+    tables.push_back(new_table);
+
 }
 
 void System::dropTable(string table_name) {
-    cout << "Dropping table: " << table_name << endl;
+    if (!doesTableExist(table_name)) {
+        throw runtime_error("Table " + table_name + " does not exist");
+    }
+    tables.erase(remove_if(tables.begin(), tables.end(), [&](const shared_ptr<Table>& table) {
+        return table->getName() == table_name;
+    }), tables.end());
 }
 
 void System::insertIntoTable(string table_name, vector<Field> fields) {
@@ -37,4 +47,13 @@ vector<vector<string>> System::selectFromTable(string table_name, vector<string>
     cout << "Where " << search_field.name << " " << op << " " << search_field.value << endl;
 
     return {{"Sample Data 1", "Sample Data 2"}, {"Sample Data 3", "Sample Data 4"}};  // Sample data for demonstration
+}
+
+bool System::doesTableExist(string table_name) {
+    for (const auto& table : tables) {
+        if (table->getName() == table_name) {
+            return true;
+        }
+    }
+    return false;
 }

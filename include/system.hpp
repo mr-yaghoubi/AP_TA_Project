@@ -2,7 +2,10 @@
 #define SYSTEM_HPP
 
 #include <vector>
+#include <memory>
+#include <algorithm>
 
+#include "table.hpp"
 #include "consts.hpp"
 #include "utils.hpp"
 
@@ -18,6 +21,8 @@ public:
     vector<vector<string>> selectFromTable(string table_name, vector<string> requested_fields, Field search_field, string op);
 
 private:
+    vector<shared_ptr<Table>> tables;
+    bool doesTableExist(string table_name);
 };
 
 #endif  // SYSTEM_HPP

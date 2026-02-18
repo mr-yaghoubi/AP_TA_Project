@@ -14,6 +14,7 @@ using namespace std;
 
 class CliHandler {
 public:
+    CliHandler() {system = make_shared<System>();}
     void run();
 
 private:
