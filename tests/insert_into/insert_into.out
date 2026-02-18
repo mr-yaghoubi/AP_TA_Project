@@ -1,0 +1,15 @@
+Error: Table university does not exist
+Success: Table students created successfully
+Success: Table users created successfully
+Success: Record inserted into table successfully
+Success: Record inserted into table successfully
+Success: Record inserted into table successfully
+Success: Record inserted into table successfully
+Success: Record inserted into table successfully
+Error: Duplicate value for required field
+Error: Missing value for required field
+Error: Missing value for required field
+Success: Table students deleted successfully
+Success: Table users deleted successfully
+Error: Table students does not exist
+Error: Table users does not exist

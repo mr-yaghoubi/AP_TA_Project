@@ -1,0 +1,21 @@
+select name from users where age != 18
+create_table users name string required;age int optional
+insert into users name:kourosh;age:22
+insert into users name:mohammadreza;age:19
+insert into users name:ali;age:18
+insert into users name:kaveh;age:17
+select name from users where age != 18
+select name;age from users where age != 18
+create_enhanced_table students student_id int required;name string optional;last_name string optional
+insert into students student_id:1;name:parisa;last_name:yahyapour
+insert into students student_id:3;last_name:yaghoubi
+insert into students student_id:2;name:kourosh;last_name:alinaghi
+insert into students student_id:5;name:mm;last_name:mehrabi
+select last_name from students where student_id = 1
+select name;last_name from students where student_id < 5
+select last_name;name from students where student_id != 3
+select last_name;name from students where student_id = 12
+select name from users where age < 17
+select student_id from students where name = mm
+drop_table students
+select student_id from students where name = mm

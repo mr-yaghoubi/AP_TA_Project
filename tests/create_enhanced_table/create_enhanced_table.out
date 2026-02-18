@@ -1,0 +1,8 @@
+Success: Table students created successfully
+Error: A table with this name already exists
+Error: Duplicate field name in table definition
+Error: Duplicate field name in table definition
+Success: Table new_students created successfully
+Error: A table with this name already exists
+Success: Table new_students_2 created successfully
+Error: A table with this name already exists

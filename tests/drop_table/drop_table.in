@@ -1,0 +1,11 @@
+create_enhanced_table students student_id int required;name string optional;last_name string optional
+create_table users name string required;age int optional
+drop_table no_table
+drop_table users
+drop_table students
+create_table users name string required;name int optional
+create_enhanced_table students student_id int required;name string optional;name string optional
+drop_table users
+drop_table students
+create_enhanced_table students student_id_2 int required;name_2 string optional;last_name string optional
+create_table users name_2 string required;age_2 int optional

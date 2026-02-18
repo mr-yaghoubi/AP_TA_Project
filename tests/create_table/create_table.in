@@ -1,0 +1,6 @@
+create_table users name string required;age int optional
+create_table table name string required;name int optional
+create_table table name string optional;id int optional
+create_table new_table name string required;name string optional
+create_table users height int required;age int optional
+create_table table height int required;height int optional

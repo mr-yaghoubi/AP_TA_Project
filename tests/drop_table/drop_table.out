@@ -1,0 +1,11 @@
+Success: Table students created successfully
+Success: Table users created successfully
+Error: Table no_table does not exist
+Success: Table users deleted successfully
+Success: Table students deleted successfully
+Error: Duplicate field name in table definition
+Error: Duplicate field name in table definition
+Error: Table no_table does not exist
+Error: Table no_table does not exist
+Success: Table students created successfully
+Success: Table users created successfully

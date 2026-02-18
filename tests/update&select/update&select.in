@@ -1,0 +1,17 @@
+create_table users name string required;age int optional
+create_enhanced_table students student_id int required;name string optional;last_name string optional
+insert into users name:kourosh;age:22
+insert into users name:mohammadreza;age:19
+insert into users name:ali;age:18
+insert into users name:kaveh;age:17
+update users where age < 30 set name parisa
+select name;age from users where age != 25
+update users where age = 17 set name kaveh
+select name from users where age = 17
+insert into students student_id:1;name:parisa;last_name:yahyapour
+insert into students student_id:3;last_name:yaghoubi
+insert into students student_id:2;name:kourosh;last_name:alinaghi
+insert into students student_id:5;name:mm;last_name:mehrabi
+update students where student_id = 1 set last_name alinaghi
+select last_name from students where student_id = 1
+select student_id from students where last_name = yahyapour
